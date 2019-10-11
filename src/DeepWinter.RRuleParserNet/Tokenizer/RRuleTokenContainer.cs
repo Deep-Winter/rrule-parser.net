@@ -134,7 +134,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer
     /// <returns> Current tokens as valid RRule.</returns>
     public override string ToString()
     {
-      return string.Join(",", _tokenInstancesMap.Values.Select(v => {
+      return string.Join(";", _tokenInstancesMap.Values.Select(v => {
         return $"{v.GetName()}={v.GetValue().ToString()}";
       }));  
     }

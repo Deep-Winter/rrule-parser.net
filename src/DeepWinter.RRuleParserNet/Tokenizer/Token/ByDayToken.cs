@@ -53,6 +53,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
       {
         return GetByDayOfWeek(_dayList);
       }
+    }
 
       /// <summary>
       /// Helper method to get the required string of the day.
@@ -63,7 +64,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
       {
         // Only US required
         var culture = new System.Globalization.CultureInfo("en-US");
-        return DateTimeFormatInfo.GetInstance(culture).GetAbbreviatedDayName(dayOfWeek).ToUpper(culture);
+        return DateTimeFormatInfo.GetInstance(culture).GetShortestDayName(dayOfWeek).ToUpper(culture);
       }
 
       /// <summary>
@@ -75,7 +76,5 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
       {
         return string.Join(",", dayOfWeeks.Select(GetByDayOfWeek));
       }
-
-    }
   }
 }

@@ -6,6 +6,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
   public class UntilToken : RRuleToken<ValueWrapper>
   {
     public const string NAME = "UNTIL";
+    public const string DATE_FORMAT = "yyyyMMdd'T'HHmmss'Z'";
 
     public UntilToken(ValueWrapper value) : base(value)
     {
@@ -29,7 +30,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
 
       public override string ToString()
       {
-        return getLocalDateTime().ToString("O");
+        return getLocalDateTime().ToString(DATE_FORMAT);
       }
 
       

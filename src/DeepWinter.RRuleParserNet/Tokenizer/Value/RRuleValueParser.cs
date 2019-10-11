@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using DeepWinter.RRuleParserNet.Tokenizer.Exception;
 using DeepWinter.RRuleParserNet.Tokenizer.Token;
@@ -19,7 +20,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Value
         if (rRuleToken == ERRuleToken.Freq)
           return GetFreqValue(value);
 
-        if (rRuleToken == ERRuleToken.Freq)
+        if (rRuleToken == ERRuleToken.Until)
           return GetUntilValue(value);
 
         if (rRuleToken == ERRuleToken.Count)
@@ -79,7 +80,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Value
     {
       try
       {
-        return new UntilToken.ValueWrapper(DateTime.Parse(value));
+        return new UntilToken.ValueWrapper(DateTime.ParseExact(value, UntilToken.DATE_FORMAT, CultureInfo.InvariantCulture));
       }
       catch (System.Exception error)
       {
