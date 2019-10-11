@@ -7,7 +7,7 @@ RRule parser is a small java library which lets you convert a [iCalendar RRule](
 ```csharp 
 RRuleParser ruleParser = new RRuleParser();
 
-String parseResult = ruleParser.parseRRule("FREQ=MONTHLY;BYSETPOS=4;BYDAY=SU;INTERVAL=5");
+string parseResult = ruleParser.ParseRRule("FREQ=MONTHLY;BYSETPOS=4;BYDAY=SU;INTERVAL=5");
 // Every 5 months on fourth Sunday
 ```
 
