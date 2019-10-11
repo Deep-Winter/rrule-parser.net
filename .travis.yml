@@ -5,7 +5,13 @@ sudo: false
 env:
     global:
         - DOTNET_CLI_TELEMETRY_OPTOUT: 1
-script:
-    - echo "Building package 1.0.$TRAVIS_BUILD_NUMBER"
-    - dotnet restore src/
-    - dotnet pack src -c Release -o dist /p:Version=1.0.$TRAVIS_BUILD_NUMBER
+
+jobs:
+  include:
+    - script: restore src/
+    - stage: "Tests"
+      name: "Unit Tests"
+      script: dotnet test src/
+    - state: "Deploy"
+      name: "Generate Nuget Packages"
+      script: dotnet pack src -c Release -o dist /p:Version=1.0.$TRAVIS_BUILD_NUMBER
