@@ -8,10 +8,11 @@ env:
 
 jobs:
   include:
-    - script: restore src/
     - stage: "Tests"
+      name: "Environment Startup"
+      script: dotnet restore src/
+    - script: dotnet test src/
       name: "Unit Tests"
-      script: dotnet test src/
     - state: "Deploy"
       name: "Generate Nuget Packages"
       script: dotnet pack src -c Release -o dist /p:Version=1.0.$TRAVIS_BUILD_NUMBER
