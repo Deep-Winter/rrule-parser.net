@@ -1,6 +1,6 @@
 # rrule-parser.net
 
-[![Build Status](https://travis-ci.org/Deep-Winter/rrule-parser.net.svg?branch=master)](https://travis-ci.org/Deep-Winter/rrule-parser.net) [![Build Status](https://travis-ci.org/Deep-Winter/rrule-parser.net.svg?branch=development)](https://travis-ci.org/Deep-Winter/rrule-parser.net)
+[![Build Status](https://travis-ci.org/Deep-Winter/rrule-parser.net.svg?branch=master)](https://travis-ci.org/Deep-Winter/rrule-parser.net)
 
 Dotnet port of [rrule-parser by aditosoftware](https://github.com/aditosoftware/rrule-parser). 
 
