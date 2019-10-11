@@ -6,5 +6,5 @@ env:
     global:
         - DOTNET_CLI_TELEMETRY_OPTOUT: 1
 script:
-    - dotnet restore
-    - dotnet build -c Release
+    - dotnet restore src/
+    - dotnet build src -c Release -o dist
