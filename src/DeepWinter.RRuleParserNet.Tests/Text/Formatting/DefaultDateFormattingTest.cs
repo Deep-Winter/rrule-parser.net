@@ -15,7 +15,7 @@ namespace DeepWinter.RRuleParserNet.Tests.Text.Formatting
 
       var formatted = dateFormatting.FormatFullDate(new DateTime(2018, 1, 1));
 
-      Assert.AreEqual("1/1/2018", formatted);
+      Assert.AreEqual("Monday, January 1, 2018", formatted);
     }
 
     [Test]

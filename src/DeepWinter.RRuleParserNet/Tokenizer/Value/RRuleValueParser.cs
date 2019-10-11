@@ -102,7 +102,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Value
 
     private ByDayToken.DayList GetByDay(string value)
     {
-      string[] parts = value.Split(",").Select(str => str.Trim().ToUpperInvariant()).ToArray();
+      string[] parts = value.Split(',').Select(str => str.Trim().ToUpperInvariant()).ToArray();
 
       var days = new List<DayOfWeek>(7);
 

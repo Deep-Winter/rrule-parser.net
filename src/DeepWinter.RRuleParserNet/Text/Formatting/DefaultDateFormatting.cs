@@ -24,7 +24,7 @@ namespace DeepWinter.RRuleParserNet.Text.Formatting
 
     public string FormatFullDate(DateTime localDate)
     {
-      return localDate.ToString("d", _fragmentTranslator.GetCompatibleLocale());
+      return localDate.ToString("D", _fragmentTranslator.GetCompatibleLocale());
     }
 
     public string FormatMonth(int month)
@@ -34,7 +34,7 @@ namespace DeepWinter.RRuleParserNet.Text.Formatting
 
     public string FormatMonthDay(DateTime monthDay)
     {
-      return monthDay.ToString("m", _fragmentTranslator.GetCompatibleLocale());
+      return monthDay.ToString("M", _fragmentTranslator.GetCompatibleLocale());
     }
 
     public IFragmentTranslator GetFragmentTranslator() => _fragmentTranslator;

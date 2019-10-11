@@ -58,12 +58,12 @@ namespace DeepWinter.RRuleParserNet.Tokenizer
 
     private string[] SplitRRule(string rruleInput)
     {
-      return rruleInput.Split(";");
+      return rruleInput.Split(';');
     }
 
     private string[] SplitRRulePart(string rrulePartInput)
     {
-      return rrulePartInput.Split("=");
+      return rrulePartInput.Split('=');
     }
 
     private object ParseValue(ERRuleToken rruleToken, string payload)

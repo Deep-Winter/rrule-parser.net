@@ -72,7 +72,7 @@ namespace DeepWinter.RRuleParserNet.Tests.Text
         "Annually on last Wednesday of April",
         "Daily, 2 times",
         "Weekly",
-        "Monthly, until 10/23/2018"
+        "Monthly, until Tuesday, October 23, 2018"
 
       )]
       string expectedResult)
