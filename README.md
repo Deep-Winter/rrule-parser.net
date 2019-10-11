@@ -16,6 +16,6 @@ string parseResult = ruleParser.ParseRRule("FREQ=MONTHLY;BYSETPOS=4;BYDAY=SU;INT
 
 ### Translation
 Want to use another language? No problem, just implement the [ILanguagePackage](src/DeepWinter.RRuleParserNet/Translation/Language/ILanguagePackage.cs) interface
-and pass it to the [parser during initialization](src/main/java/de/adito/rruleparser/RRuleParser.java#L29). (An example can be found [here](src/DeepWinter.RRuleParserNet/Translation/Language/EnglishTranslation.cs))
+and pass it to the [parser during initialization](src/DeepWinter.RRuleParserNet/RRuleParser.cs#L29). (An example can be found [here](src/DeepWinter.RRuleParserNet/Translation/Language/EnglishTranslation.cs))
 
 The default translation is in [English](src/DeepWinter.RRuleParserNet/Translation/Language/EnglishTranslation.cs).
