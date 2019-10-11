@@ -18,5 +18,8 @@
   <ItemGroup>
     <Folder Include="Tokenizer\" />
     <Folder Include="Tokenizer\Token\" />
+    <Folder Include="Text\" />
+    <Folder Include="Text\Formatting\" />
+    <Folder Include="Text\Listing\" />
   </ItemGroup>
 </Project>
