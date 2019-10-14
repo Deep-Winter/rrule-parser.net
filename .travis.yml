@@ -14,5 +14,5 @@ jobs:
   include:
     - stage: test
       script: dotnet test src/
-    - state: deploy
+    - stage: deploy
       script: dotnet pack src -c Release -o dist /p:Version=1.0.$TRAVIS_BUILD_NUMBER
