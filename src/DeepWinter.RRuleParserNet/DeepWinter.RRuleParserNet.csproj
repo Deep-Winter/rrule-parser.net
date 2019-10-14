@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>rrule-parser.net</PackageId>
     <Authors>Lars Winter</Authors>
     <Copyright>Copyright © 2019 Lars Winter</Copyright>
