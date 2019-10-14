@@ -1,18 +1,11 @@
 language: csharp
 mono: none
-dotnet: 2.2
+dotnet: 3.0
 sudo: false
 env:
     global:
         - DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
-jobs:
-  include:
-    - stage: "Tests"
-      name: "Environment Startup"
-      script: dotnet restore src/
-    - script: dotnet test src/
-      name: "Unit Tests"
-    - state: "Deploy"
-      name: "Generate Nuget Packages"
-      script: dotnet pack src -c Release -o dist /p:Version=1.0.$TRAVIS_BUILD_NUMBER
+script: dotnet restore src/
+script: dotnet test src/
+script: dotnet pack src -c Release -o dist /p:Version=1.0.$TRAVIS_BUILD_NUMBER
