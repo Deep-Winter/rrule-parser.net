@@ -1,7 +1,5 @@
 # rrule-parser.net
 
-[![Build Status](https://travis-ci.org/Deep-Winter/rrule-parser.net.svg?branch=master)](https://travis-ci.org/Deep-Winter/rrule-parser.net)
-
 Dotnet port of [rrule-parser by aditosoftware](https://github.com/aditosoftware/rrule-parser). 
 
 RRule parser is a small dotnet library which lets you convert a [iCalendar RRule](https://tools.ietf.org/html/rfc2445#section-4.3.10) into human readable text.
