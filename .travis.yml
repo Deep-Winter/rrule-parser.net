@@ -12,9 +12,7 @@ stages:
     if: branch = master
 jobs:
   include:
-    - stage: "test"
-      name: "Unit Tests"
+    - stage: test
       script: dotnet test src/
-    - state: "deploy"
-      name: "Generate Nuget Packages"
+    - state: deploy
       script: dotnet pack src -c Release -o dist /p:Version=1.0.$TRAVIS_BUILD_NUMBER
