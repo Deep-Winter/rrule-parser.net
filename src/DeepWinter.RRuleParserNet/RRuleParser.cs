@@ -82,5 +82,33 @@ namespace DeepWinter.RRuleParserNet
     {
       return _textBuilder.BuildText(tokenContainer);
     }
+
+    public static IRRuleParser CreateDefault()
+    {
+      return new RRuleParser();
+    }
+
+    public static IRRuleParser CreateEnglisch()
+    {
+      return new RRuleParser(new EnglishTranslation());
+    }
+
+    public static IRRuleParser CreateGerman()
+    {
+      return new RRuleParser(new GermanTranslation());
+    }
+
+    public static IRRuleParser Create(string code)
+    {
+      switch(code)
+      {
+        case "de":
+          return CreateGerman();
+        case "en":
+          return CreateEnglisch();
+        default:
+          return CreateDefault();
+      }
+    }
   }
 }
