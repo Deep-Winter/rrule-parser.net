@@ -80,7 +80,15 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Value
     {
       try
       {
-        return new UntilToken.ValueWrapper(DateTime.ParseExact(value, UntilToken.DATE_FORMAT, CultureInfo.InvariantCulture));
+        try
+        {
+          return new UntilToken.ValueWrapper(DateTime.ParseExact(value, UntilToken.DATE_FORMAT, CultureInfo.InvariantCulture));
+        }
+        catch (System.Exception)
+        {
+          return new UntilToken.ValueWrapper(DateTime.ParseExact(value, UntilToken.ALT_DATE_FORMAT, CultureInfo.InvariantCulture));
+        }
+        
       }
       catch (System.Exception error)
       {
