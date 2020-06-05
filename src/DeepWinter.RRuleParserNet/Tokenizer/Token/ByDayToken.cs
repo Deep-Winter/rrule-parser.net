@@ -25,10 +25,17 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
         _dayList = dayList;
       }
 
+#if DOTNET35
+      public List<DayOfWeek> GetDayList()
+      {
+        return _dayList;
+      }
+#else
       public IReadOnlyList<DayOfWeek> GetDayList()
       {
         return _dayList.AsReadOnly();
       }
+#endif
 
       public override bool Equals(object obj)
       {
@@ -55,26 +62,26 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
       }
     }
 
-      /// <summary>
-      /// Helper method to get the required string of the day.
-      /// </summary>
-      /// <param name="dayOfWeek">DayOfWeek to convert.</param>
-      /// <returns>String representative of the DayOfWeek.</returns>
-      public static string GetByDayOfWeek(DayOfWeek dayOfWeek)
-      {
-        // Only US required
-        var culture = new System.Globalization.CultureInfo("en-US");
-        return DateTimeFormatInfo.GetInstance(culture).GetShortestDayName(dayOfWeek).ToUpper(culture);
-      }
+    /// <summary>
+    /// Helper method to get the required string of the day.
+    /// </summary>
+    /// <param name="dayOfWeek">DayOfWeek to convert.</param>
+    /// <returns>String representative of the DayOfWeek.</returns>
+    public static string GetByDayOfWeek(DayOfWeek dayOfWeek)
+    {
+      // Only US required
+      var culture = new System.Globalization.CultureInfo("en-US");
+      return DateTimeFormatInfo.GetInstance(culture).GetShortestDayName(dayOfWeek).ToUpper(culture);
+    }
 
-      /// <summary>
-      /// Helper method to get the required string which contains multiple days.
-      /// </summary>
-      /// <param name="dayOfWeeks">DayOfWeek list to convert.</param>
-      /// <returns>String representative list of days.</returns>
-      public static string GetByDayOfWeek(IEnumerable<DayOfWeek> dayOfWeeks)
-      {
-        return string.Join(",", dayOfWeeks.Select(GetByDayOfWeek));
-      }
+    /// <summary>
+    /// Helper method to get the required string which contains multiple days.
+    /// </summary>
+    /// <param name="dayOfWeeks">DayOfWeek list to convert.</param>
+    /// <returns>String representative list of days.</returns>
+    public static string GetByDayOfWeek(IEnumerable<DayOfWeek> dayOfWeeks)
+    {
+      return string.Join(",", dayOfWeeks.Select(GetByDayOfWeek).ToArray());
+    }
   }
 }
