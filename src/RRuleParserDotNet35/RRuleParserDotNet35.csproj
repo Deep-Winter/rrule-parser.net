@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B847F5DB-25A0-4668-BA57-FD303B7B53C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RRuleParserDotNet35</RootNamespace>
+    <AssemblyName>RRuleParserDotNet35</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DOTNET35</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;DOTNET35</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\DeepWinter.RRuleParserNet\IRRuleParser.cs">
+      <Link>IRRuleParser.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\RRuleParser.cs">
+      <Link>RRuleParser.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Text\Formatting\DefaultDateFormatting.cs">
+      <Link>DefaultDateFormatting.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Text\Formatting\IDateFormatting.cs">
+      <Link>IDateFormatting.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Text\ITextBuilder.cs">
+      <Link>ITextBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Text\Listing\DefaultDayListingFormatting.cs">
+      <Link>DefaultDayListingFormatting.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Text\Listing\IDayListingFormatting.cs">
+      <Link>IDayListingFormatting.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Text\TextBuilder.cs">
+      <Link>TextBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Exception\RRuleTokenizeException.cs">
+      <Link>RRuleTokenizeException.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\IRRuleToken.cs">
+      <Link>IRRuleToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\IRRuleTokenContainer.cs">
+      <Link>IRRuleTokenContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\IRRuleTokenizer.cs">
+      <Link>IRRuleTokenizer.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\RRuleTokenContainer.cs">
+      <Link>RRuleTokenContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\RRuleTokenizer.cs">
+      <Link>RRuleTokenizer.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\RRuleTokenizerFactory.cs">
+      <Link>RRuleTokenizerFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Token\ByDayToken.cs">
+      <Link>ByDayToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Token\ByMonthDayToken.cs">
+      <Link>ByMonthDayToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Token\ByMonthToken.cs">
+      <Link>ByMonthToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Token\BySetPosToken.cs">
+      <Link>BySetPosToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Token\CountToken.cs">
+      <Link>CountToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Token\ERRuleToken.cs">
+      <Link>ERRuleToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Token\FreqToken.cs">
+      <Link>FreqToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Token\IntervalToken.cs">
+      <Link>IntervalToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Token\UntilToken.cs">
+      <Link>UntilToken.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Validation\Exception\RRuleValidationException.cs">
+      <Link>RRuleValidationException.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Validation\IRRuleValidator.cs">
+      <Link>IRRuleValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Validation\RRuleValidator.cs">
+      <Link>RRuleValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Value\IValueParser.cs">
+      <Link>IValueParser.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Tokenizer\Value\RRuleValueParser.cs">
+      <Link>RRuleValueParser.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Translation\ETranslationFragment.cs">
+      <Link>ETranslationFragment.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Translation\IFragmentTranslator.cs">
+      <Link>IFragmentTranslator.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Translation\LanguagePackageFragmentTranslator.cs">
+      <Link>LanguagePackageFragmentTranslator.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Translation\Language\EnglishTranslation.cs">
+      <Link>EnglishTranslation.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Translation\Language\GermanTranslation.cs">
+      <Link>GermanTranslation.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Translation\Language\ILanguagePackage.cs">
+      <Link>ILanguagePackage.cs</Link>
+    </Compile>
+    <Compile Include="..\DeepWinter.RRuleParserNet\Utils\Enumeration.cs">
+      <Link>Enumeration.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

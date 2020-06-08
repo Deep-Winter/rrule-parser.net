@@ -15,6 +15,7 @@ RRule parser is a small dotnet library which lets you convert a iCalendar RRule 
     <Title>rrule-parser.net</Title>
     <Description>Dotnet port of rrule-parser by aditosoftware.
 RRule parser is a small dotnet library which lets you convert a iCalendar RRule into human readable text.</Description>
+    <PackageVersion>1.0.2</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,6 +33,6 @@ RRule parser is a small dotnet library which lets you convert a iCalendar RRule 
     <Folder Include="Text\Listing\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NuGet.Packaging" Version="5.3.0" />
+    <PackageReference Include="NuGet.Packaging" Version="5.5.1" />
   </ItemGroup>
 </Project>

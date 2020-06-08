@@ -1,8 +1,18 @@
 language: csharp
-dotnet: 2.2.7
+mono: none
+dotnet: 3.0
 sudo: false
 env:
     global:
         - DOTNET_CLI_TELEMETRY_OPTOUT: 1
-script:
-    - dotnet build DeepWinter.RRuleParserNet.sln -c Release
+
+stages:
+  - test
+  - name: deploy
+    if: branch = master
+jobs:
+  include:
+    - stage: test
+      script: dotnet test src/
+    - stage: deploy
+      script: dotnet pack src -c Release -o dist /p:Version=1.0.$TRAVIS_BUILD_NUMBER

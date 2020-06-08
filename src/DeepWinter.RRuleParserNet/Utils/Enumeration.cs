@@ -26,9 +26,15 @@ namespace DeepWinter.RRuleParserNet.Utils
     public static IEnumerable<T> GetAll<T>() where T : Enumeration, new()
     {
       var type = typeof(T);
+#if DOTNET35
+      var fields = type.GetFields(BindingFlags.Public |
+                                          BindingFlags.Static |
+                                          BindingFlags.DeclaredOnly);
+#else
       var fields = type.GetTypeInfo().GetFields(BindingFlags.Public |
                                                 BindingFlags.Static |
                                                 BindingFlags.DeclaredOnly);
+#endif
       foreach (var info in fields)
       {
         var instance = new T();
@@ -42,7 +48,7 @@ namespace DeepWinter.RRuleParserNet.Utils
 
     public static string ToString<T>() where T : Enumeration, new()
     {
-      return string.Join(", ", GetAll<T>().Select(e => e.Name));
+      return string.Join(", ", GetAll<T>().Select(e => e.Name).ToArray());
     }
 
     public override bool Equals(object obj)
@@ -74,7 +80,7 @@ namespace DeepWinter.RRuleParserNet.Utils
 
       if (element == null)
       {
-        throw new Exception($@"Unknown enum type for {typeof(T).Name}: ""{name}"". possible values are: {String.Join(",", GetAll<T>().Select(s => s.Name))}");
+        throw new Exception($@"Unknown enum type for {typeof(T).Name}: ""{name}"". possible values are: {String.Join(",", GetAll<T>().Select(s => s.Name).ToArray())}");
       }
 
       return element;

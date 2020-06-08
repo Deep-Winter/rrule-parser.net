@@ -98,12 +98,12 @@ namespace DeepWinter.RRuleParserNet.Text.Listing
 
     private string BuildMonthsShortString(List<DayOfWeek> dayOfWeeks)
     {
-      return string.Join(", ", dayOfWeeks.Select(dayOfWeek => _dateFormatting.FormatDayShort(dayOfWeek)));
+      return string.Join(", ", dayOfWeeks.Select(dayOfWeek => _dateFormatting.FormatDayShort(dayOfWeek)).ToArray());
     }
 
     private string BuildMonthsString(List<DayOfWeek> dayOfWeeks)
     {
-      return string.Join(", ", dayOfWeeks.Select(dayOfWeek => _dateFormatting.FormatDay(dayOfWeek)));
+      return string.Join(", ", dayOfWeeks.Select(dayOfWeek => _dateFormatting.FormatDay(dayOfWeek)).ToArray());
     }
 
     private string BuildChainRepresentation(DayOfWeek start, DayOfWeek end)
