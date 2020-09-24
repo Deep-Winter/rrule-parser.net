@@ -22,6 +22,7 @@ and pass it to the [parser during initialization](src/DeepWinter.RRuleParserNet/
 Current available translations are
   - [English](src/DeepWinter.RRuleParserNet/Translation/Language/EnglishTranslation.cs)
   - [German](src/DeepWinter.RRuleParserNet/Translation/Language/GermanTranslation.cs)
+  - [Italian](src/DeepWinter.RRuleParserNet/Translation/Language/ItalianTranslation.cs) (Thanks to [Emanuele Rossi](https://github.com/EmanueleRossi)!)
 
 The default translation is in [English](src/DeepWinter.RRuleParserNet/Translation/Language/EnglishTranslation.cs).
 
