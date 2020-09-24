@@ -48,7 +48,7 @@ namespace DeepWinter.RRuleParserNet.Translation.Language
         case ETranslationFragment.TIMES:
           return "mal";
         case ETranslationFragment.ON:
-          return "an";
+          return "am";
         case ETranslationFragment.EVERY:
           return "jedem";
         case ETranslationFragment.OF:
