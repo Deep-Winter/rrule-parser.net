@@ -136,7 +136,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer
     {
       return string.Join(";", _tokenInstancesMap.Values.Select(v => {
         return $"{v.GetName()}={v.GetValue().ToString()}";
-      }));  
+      }).ToArray());  
     }
 
     private IRRuleToken GetTokenOrNull(Type type)

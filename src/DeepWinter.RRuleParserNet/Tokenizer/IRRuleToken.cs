@@ -36,7 +36,17 @@ namespace DeepWinter.RRuleParserNet.Tokenizer
     public abstract string GetName();
   
 
-    public object GetValue()
+    public T GetValue()
+    {
+      return _value;
+    }
+
+    public bool HasValue()
+    {
+      return _value != null;
+    }
+
+    object IRRuleToken.GetValue()
     {
       return _value;
     }
