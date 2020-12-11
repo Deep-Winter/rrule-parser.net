@@ -19,16 +19,12 @@ RRule parser is a small dotnet library which lets you convert a iCalendar RRule 
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Tokenizer\" />
     <Folder Include="Tokenizer\Exception\" />
     <Folder Include="Tokenizer\Validation\" />
     <Folder Include="Tokenizer\Validation\Exception\" />
-    <Folder Include="Tokenizer\Token\" />
     <Folder Include="Utils\" />
     <Folder Include="Tokenizer\Value\" />
     <Folder Include="Text\" />
-    <Folder Include="Translation\" />
-    <Folder Include="Translation\Language\" />
     <Folder Include="Text\Formatting\" />
     <Folder Include="Text\Listing\" />
   </ItemGroup>

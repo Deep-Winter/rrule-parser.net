@@ -32,7 +32,7 @@ namespace DeepWinter.RRuleParserNet.Tests.Tokenizer
       Assert.AreEqual(2, tokenContainer.RuleCount());
       Assert.NotNull(tokenContainer.GetUntil());
       Assert.AreEqual(new DateTime(2018, 10, 23, 22, 0, 0),
-        ((UntilToken.ValueWrapper)tokenContainer.GetUntil().GetValue()).getLocalDateTime());
+        ((ValueWrapper)tokenContainer.GetUntil().GetValue()).getLocalDateTime());
     }
 
     [Test]

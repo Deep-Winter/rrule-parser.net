@@ -1,4 +1,5 @@
 using System;
+using DeepWinter.RRuleParserNet.Translation.Language;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
 using NUnit.Framework;
 
@@ -12,7 +13,14 @@ namespace DeepWinter.RRuleParserNet.Tests
     {
 
     }
+    [Test]
+    public void TestWithDtSTart()
+    {
+        var rRuleParser = new RRuleParser( new DutchTranslation());
+        var parseResult = rRuleParser.ParseRRule("FREQ=DAILY;DtSTART=20201213T000000;UNTIL=20201214T000000");
+        Assert.AreEqual("Dagelijks, vanaf zondag 13 december 2020, tot maandag 14 december 2020", parseResult);
 
+    }
     [Test]
     public void TestGeneralFunctionality()
     {

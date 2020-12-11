@@ -26,6 +26,14 @@ namespace DeepWinter.RRuleParserNet.Tokenizer
     UntilToken GetUntil();
 
     /// <summary>
+    ///  Returns the "DTSTART" token.
+    ///  <code>null</code> if not set
+    /// </summary>
+    /// <returns>"DTSTART" token or <code>null</code></returns>
+    StartToken GetStart();
+
+
+    /// <summary>
     /// Returns the "COUNT" token.
     /// <code>null</code> if not set
     /// </summary>

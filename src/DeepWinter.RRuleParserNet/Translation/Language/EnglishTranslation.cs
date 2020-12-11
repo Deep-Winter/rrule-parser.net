@@ -55,7 +55,9 @@ namespace DeepWinter.RRuleParserNet.Translation.Language
           return "every";
         case ETranslationFragment.OF:
           return "of";
-        default:
+        case ETranslationFragment.DTSTART:
+            return "from";
+                default:
           return "";
       }
     }

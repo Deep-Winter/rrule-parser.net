@@ -41,6 +41,8 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Value
         if (rRuleToken == ERRuleToken.BySetPos)
           return ParseInteger(value);
 
+        if (rRuleToken == ERRuleToken.Start)
+          return GetUntilValue(value);
         throw new System.Exception($"Unknown token {rRuleToken.Name.ToUpperInvariant()}");
       }
       catch(RRuleTokenizeException error)
@@ -76,17 +78,17 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Value
       }
     }
 
-    private UntilToken.ValueWrapper GetUntilValue(string value)
+    private ValueWrapper GetUntilValue(string value)
     {
       try
       {
         try
         {
-          return new UntilToken.ValueWrapper(DateTime.ParseExact(value, UntilToken.DATE_FORMAT, CultureInfo.InvariantCulture));
+          return new ValueWrapper(DateTime.ParseExact(value, UntilToken.DATE_FORMAT, CultureInfo.InvariantCulture));
         }
         catch (System.Exception)
         {
-          return new UntilToken.ValueWrapper(DateTime.ParseExact(value, UntilToken.ALT_DATE_FORMAT, CultureInfo.InvariantCulture));
+          return new ValueWrapper(DateTime.ParseExact(value, UntilToken.ALT_DATE_FORMAT, CultureInfo.InvariantCulture));
         }
         
       }

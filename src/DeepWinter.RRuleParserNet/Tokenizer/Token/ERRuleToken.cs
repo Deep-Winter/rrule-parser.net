@@ -6,14 +6,15 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
 {
   public class ERRuleToken : Enumeration
   {
-    public static ERRuleToken Freq = new ERRuleToken(FreqToken.NAME, typeof(FreqToken));
-    public static ERRuleToken Until = new ERRuleToken(UntilToken.NAME, typeof(UntilToken));
-    public static ERRuleToken Count = new ERRuleToken(CountToken.NAME, typeof(CountToken));
-    public static ERRuleToken Interval = new ERRuleToken(IntervalToken.NAME, typeof(IntervalToken));
-    public static ERRuleToken ByDay = new ERRuleToken(ByDayToken.NAME, typeof(ByDayToken));
-    public static ERRuleToken ByMonthDay = new ERRuleToken(ByMonthDayToken.NAME, typeof(ByMonthDayToken));
-    public static ERRuleToken ByMonth = new ERRuleToken(ByMonthToken.NAME, typeof(ByMonthToken));
-    public static ERRuleToken BySetPos = new ERRuleToken(BySetPosToken.NAME, typeof(BySetPosToken));
+    public readonly static ERRuleToken Freq = new ERRuleToken(FreqToken.NAME, typeof(FreqToken));
+    public readonly static ERRuleToken Until = new ERRuleToken(UntilToken.NAME, typeof(UntilToken));
+    public readonly static ERRuleToken Count = new ERRuleToken(CountToken.NAME, typeof(CountToken));
+    public readonly static ERRuleToken Interval = new ERRuleToken(IntervalToken.NAME, typeof(IntervalToken));
+    public readonly static ERRuleToken ByDay = new ERRuleToken(ByDayToken.NAME, typeof(ByDayToken));
+    public readonly static ERRuleToken ByMonthDay = new ERRuleToken(ByMonthDayToken.NAME, typeof(ByMonthDayToken));
+    public readonly static ERRuleToken ByMonth = new ERRuleToken(ByMonthToken.NAME, typeof(ByMonthToken));
+    public readonly static ERRuleToken BySetPos = new ERRuleToken(BySetPosToken.NAME, typeof(BySetPosToken));
+    public readonly static ERRuleToken Start = new ERRuleToken(StartToken.NAME, typeof(StartToken));
 
     readonly Type _tokenType;
 
@@ -26,7 +27,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
 
     public static ERRuleToken SearchRRuleToken(string input)
     {
-      return FromName<ERRuleToken>(input.ToUpperInvariant());
+      return FromName<ERRuleToken>(input);
     }
 
     public IRRuleToken GetTokenInstance(object value)

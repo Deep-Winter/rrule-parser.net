@@ -88,11 +88,14 @@ namespace DeepWinter.RRuleParserNet
       return new RRuleParser();
     }
 
-    public static IRRuleParser CreateEnglisch()
+    public static IRRuleParser CreateEnglish()
     {
       return new RRuleParser(new EnglishTranslation());
     }
-
+   public static IRRuleParser CreateDutch()
+    {
+      return new RRuleParser(new DutchTranslation());
+    }
     public static IRRuleParser CreateGerman()
     {
       return new RRuleParser(new GermanTranslation());
@@ -105,7 +108,9 @@ namespace DeepWinter.RRuleParserNet
         case "de":
           return CreateGerman();
         case "en":
-          return CreateEnglisch();
+          return CreateEnglish();
+        case "nl":
+            return CreateDutch();
         default:
           return CreateDefault();
       }
