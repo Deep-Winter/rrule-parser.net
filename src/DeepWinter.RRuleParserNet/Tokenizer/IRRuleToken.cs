@@ -28,7 +28,7 @@
     {
         private readonly T _value;
 
-        public RRuleToken(T value)
+        protected RRuleToken(T value)
         {
             _value = value;
         }

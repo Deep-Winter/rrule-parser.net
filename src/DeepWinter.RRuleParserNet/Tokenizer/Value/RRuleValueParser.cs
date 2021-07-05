@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using DeepWinter.RRuleParserNet.Tokenizer.Exception;
+using DeepWinter.RRuleParserNet.Tokenizer.Exceptions;
 using DeepWinter.RRuleParserNet.Tokenizer.Token;
 
 namespace DeepWinter.RRuleParserNet.Tokenizer.Value
@@ -39,17 +39,17 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Value
 
                 if (rRuleToken == ERRuleToken.Start)
                     return GetUntilValue(value);
-                throw new System.Exception($"Unknown token {rRuleToken.Name.ToUpperInvariant()}");
+                throw new System.Exception($"Unknown token {rRuleToken}");
             }
             catch (RRuleTokenizeException error)
             {
                 throw new RRuleTokenizeException(
-                    $"Value {value} is invalid for key {rRuleToken.Name.ToUpperInvariant()}: {error.Message}");
+                    $"Value {value} is invalid for key {rRuleToken}: {error.Message}");
             }
             catch (System.Exception error)
             {
                 throw new RRuleTokenizeException(
-                    $"Value {value} is invalid for key {rRuleToken.Name.ToUpperInvariant()}: {error.Message}");
+                    $"Value {value} is invalid for key {rRuleToken}: {error.Message}");
             }
         }
 

@@ -94,7 +94,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer
 
         public static RRuleTokenContainer EmptyTokenContainer()
         {
-            return new RRuleTokenContainer(new IRRuleToken[0]);
+            return new RRuleTokenContainer(Array.Empty<IRRuleToken>());
         }
 
         /// <summary>
@@ -136,14 +136,12 @@ namespace DeepWinter.RRuleParserNet.Tokenizer
         /// <returns> Current tokens as valid RRule.</returns>
         public override string ToString()
         {
-            return string.Join(";", _tokenInstancesMap.Values.Select(v => { return $"{v.GetName()}={v.GetValue()}"; }));
+            return string.Join(";", _tokenInstancesMap.Values.Select(v => $"{v.GetName()}={v.GetValue()}"));
         }
 
         private IRRuleToken GetTokenOrNull(Type type)
         {
-            if (!_tokenInstancesMap.ContainsKey(type)) return null;
-
-            return _tokenInstancesMap[type];
+            return !_tokenInstancesMap.ContainsKey(type) ? null : _tokenInstancesMap[type];
         }
 
         private void AddOrUpdateToken(IRRuleToken token)
