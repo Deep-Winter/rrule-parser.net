@@ -31,6 +31,7 @@ namespace DeepWinter.RRuleParserNet.Translation
     TIMES,
     ON,
     EVERY,
-    OF
+    OF,
+    DTSTART
   }
 }

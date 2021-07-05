@@ -62,7 +62,10 @@ namespace DeepWinter.RRuleParserNet.Tokenizer
     {
       return (UntilToken)GetTokenOrNull(typeof(UntilToken));
     }
-
+    public StartToken GetStart()
+    {
+        return (StartToken)GetTokenOrNull(typeof(StartToken));
+    }
     public void Merge(IRRuleTokenContainer tokenContainer)
     {
       if (tokenContainer.GetFreq() != null && GetFreq() == null)

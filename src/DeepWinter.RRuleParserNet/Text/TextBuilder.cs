@@ -12,25 +12,25 @@ namespace DeepWinter.RRuleParserNet.Text
   {
     private IFragmentTranslator _fragmentTranslator;
     private IDateFormatting _dateFormatting;
-    private IDayListingFormatting _dayListingFormatting; 
+    private IDayListingFormatting _dayListingFormatting;
 
-    
+
     public TextBuilder(IFragmentTranslator fragmentTranslator) :
       this(fragmentTranslator, new DefaultDateFormatting(fragmentTranslator))
     {
-      
+
     }
 
     public TextBuilder(IFragmentTranslator fragmentTranslator, IDayListingFormatting dayListingFormatting) :
       this(fragmentTranslator, new DefaultDateFormatting(fragmentTranslator), dayListingFormatting)
     {
-      
+
     }
 
     public TextBuilder(IFragmentTranslator fragmentTranslator, IDateFormatting dateFormatting) :
       this(fragmentTranslator, dateFormatting, new DefaultDayListingFormatting(dateFormatting))
     {
-      
+
     }
 
     public TextBuilder(IFragmentTranslator fragmentTranslator, IDateFormatting dateFormatting, IDayListingFormatting dayListingFormatting)
@@ -69,7 +69,12 @@ namespace DeepWinter.RRuleParserNet.Text
       {
         resultString += " " + BuildYearlyOnNumbered(tokenContainer);
       }
-
+     if (tokenContainer.GetStart() != null)
+     {
+        var ending = _buildStartDate(tokenContainer);
+        if (ending != null)
+            resultString += ", " + ending;
+     }
       // Endings
       if (tokenContainer.GetUntil() != null)
       {
@@ -221,6 +226,17 @@ namespace DeepWinter.RRuleParserNet.Text
       return result;
     }
 
+    private string _buildStartDate(IRRuleTokenContainer pTokenContainer)
+	{
+        var startToken = pTokenContainer.GetStart();
+        if (startToken == null)
+        {
+            return null;
+        }
+        string result = _fragmentTranslator.GetTranslatedFragment(ETranslationFragment.DTSTART);
+        result += $" {_dateFormatting.FormatFullDate(((ValueWrapper)startToken.GetValue()).getLocalDateTime())}";
+        return result;
+    }
     /* ---- ENDINGS ---- */
 
     private string _buildUntilDateEnding(IRRuleTokenContainer pTokenContainer)
@@ -230,7 +246,7 @@ namespace DeepWinter.RRuleParserNet.Text
         return null;
 
       string result = _fragmentTranslator.GetTranslatedFragment(ETranslationFragment.UNTIL);
-      result += $" {_dateFormatting.FormatFullDate(((UntilToken.ValueWrapper)untilToken.GetValue()).getLocalDateTime())}";
+      result += $" {_dateFormatting.FormatFullDate(((ValueWrapper)untilToken.GetValue()).getLocalDateTime())}";
 
       return result;
     }

@@ -53,7 +53,9 @@ namespace DeepWinter.RRuleParserNet.Translation.Language
           return "jedem";
         case ETranslationFragment.OF:
           return "der";
-        default:
+        case ETranslationFragment.DTSTART:
+            return "vom";
+                default:
           return "";
       }
     }
