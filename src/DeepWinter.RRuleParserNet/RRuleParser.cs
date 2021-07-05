@@ -1,5 +1,4 @@
-﻿using System;
-using DeepWinter.RRuleParserNet.Text;
+﻿using DeepWinter.RRuleParserNet.Text;
 using DeepWinter.RRuleParserNet.Tokenizer;
 using DeepWinter.RRuleParserNet.Tokenizer.Validation;
 using DeepWinter.RRuleParserNet.Tokenizer.Value;
@@ -8,18 +7,8 @@ using DeepWinter.RRuleParserNet.Translation.Language;
 
 namespace DeepWinter.RRuleParserNet
 {
-  public class RRuleParser : IRRuleParser
-  {
-    private IRRuleTokenizer _tokenizer;
-    private ITextBuilder _textBuilder;
-
-    /// <summary>
-    /// Creates the RRuleParser. With the english translation.
-    /// </summary>
-    public RRuleParser() :
-      this(new EnglishTranslation())
+    public class RRuleParser : IRRuleParser
     {
-
     }
 
     /// <summary>
@@ -92,10 +81,17 @@ namespace DeepWinter.RRuleParserNet
     {
       return new RRuleParser(new EnglishTranslation());
     }
-   public static IRRuleParser CreateDutch()
+  
+    public static IRRuleParser CreateDutch()
     {
       return new RRuleParser(new DutchTranslation());
     }
+  
+    public static IRRuleParser CreatePortuguese()
+    {
+      return new RRuleParser(new PortugueseTranslation());
+    }
+  
     public static IRRuleParser CreateGerman()
     {
       return new RRuleParser(new GermanTranslation());
@@ -111,9 +107,10 @@ namespace DeepWinter.RRuleParserNet
           return CreateEnglish();
         case "nl":
             return CreateDutch();
+        case "pt":
+            return CreatePortuguese();
         default:
           return CreateDefault();
       }
-    }
-  }
+   }
 }
