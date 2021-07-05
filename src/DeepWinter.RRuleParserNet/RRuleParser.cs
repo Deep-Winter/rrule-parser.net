@@ -96,6 +96,11 @@ namespace DeepWinter.RRuleParserNet
     {
       return new RRuleParser(new GermanTranslation());
     }
+    
+    public static IRRuleParser CreateItalian()
+    {
+      return new RRuleParser(new ItalianTranslations());
+    }
 
     public static IRRuleParser Create(string code)
     {
@@ -109,6 +114,8 @@ namespace DeepWinter.RRuleParserNet
             return CreateDutch();
         case "pt":
             return CreatePortuguese();
+        case "it":
+            return CreateItalian();
         default:
           return CreateDefault();
       }
