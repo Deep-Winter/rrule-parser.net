@@ -1,4 +1,5 @@
-﻿using DeepWinter.RRuleParserNet.Text;
+﻿using System;
+using DeepWinter.RRuleParserNet.Text;
 using DeepWinter.RRuleParserNet.Tokenizer;
 using DeepWinter.RRuleParserNet.Tokenizer.Validation;
 using DeepWinter.RRuleParserNet.Tokenizer.Value;
@@ -7,8 +8,18 @@ using DeepWinter.RRuleParserNet.Translation.Language;
 
 namespace DeepWinter.RRuleParserNet
 {
-    public class RRuleParser : IRRuleParser
+  public class RRuleParser : IRRuleParser
+  {
+    private IRRuleTokenizer _tokenizer;
+    private ITextBuilder _textBuilder;
+
+    /// <summary>
+    /// Creates the RRuleParser. With the english translation.
+    /// </summary>
+    public RRuleParser() :
+      this(new EnglishTranslation())
     {
+
     }
 
     /// <summary>
@@ -37,7 +48,7 @@ namespace DeepWinter.RRuleParserNet
     /// </summary>
     /// <param name="rruleTokenizer"></param>
     public RRuleParser(IRRuleTokenizer rruleTokenizer) :
-        this(rruleTokenizer, new TextBuilder(new LanguagePackageFragmentTranslator(new EnglishTranslation())))
+      this(rruleTokenizer, new TextBuilder(new LanguagePackageFragmentTranslator(new EnglishTranslation())))
     {
 
     }
@@ -62,6 +73,23 @@ namespace DeepWinter.RRuleParserNet
       return BuildText(rruleTokenContainer);
     }
 
+    public bool TryParseRRule(string pRRule, out string pRRuleAsHumanReadableText)
+    {
+      try
+      {
+        var rruleTokenContainer = TokenizeRRule(pRRule);
+
+        // Build the text for the rrule token container
+        pRRuleAsHumanReadableText = BuildText(rruleTokenContainer);
+        return true;
+      }
+      catch (Exception)
+      {
+        pRRuleAsHumanReadableText = null;
+        return false;
+      }
+    }
+
     private IRRuleTokenContainer TokenizeRRule(string input)
     {
       return _tokenizer.Tokenize(input);
@@ -81,43 +109,44 @@ namespace DeepWinter.RRuleParserNet
     {
       return new RRuleParser(new EnglishTranslation());
     }
-  
+
     public static IRRuleParser CreateDutch()
     {
       return new RRuleParser(new DutchTranslation());
     }
-  
+
     public static IRRuleParser CreatePortuguese()
     {
       return new RRuleParser(new PortugueseTranslation());
     }
-  
+
     public static IRRuleParser CreateGerman()
     {
       return new RRuleParser(new GermanTranslation());
     }
-    
+
     public static IRRuleParser CreateItalian()
     {
-      return new RRuleParser(new ItalianTranslations());
+      return new RRuleParser(new ItalianTranslation());
     }
 
     public static IRRuleParser Create(string code)
     {
-      switch(code)
+      switch (code)
       {
         case "de":
           return CreateGerman();
         case "en":
           return CreateEnglish();
         case "nl":
-            return CreateDutch();
+          return CreateDutch();
         case "pt":
-            return CreatePortuguese();
+          return CreatePortuguese();
         case "it":
-            return CreateItalian();
+          return CreateItalian();
         default:
           return CreateDefault();
       }
-   }
+    }
+  }
 }

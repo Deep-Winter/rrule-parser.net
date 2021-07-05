@@ -68,5 +68,16 @@ namespace DeepWinter.RRuleParserNet.Tests
       // assert
       Console.WriteLine($"Created result {parseResult}");
     }
+    
+    [Test]
+    public void TestTryParseFail()
+    {
+      // Creates a rrule parser with english translation
+      RRuleParser ruleParser = new RRuleParser();
+      string humanReadable;
+      var result = ruleParser.TryParseRRule("FREQ=MONTHLY;BYSETPOS=4;BYDAY=;INTERVAL=5;UNTIL=20200427T165449Z", out humanReadable);
+     
+      Assert.IsFalse(result);
+    }
   }
 }
