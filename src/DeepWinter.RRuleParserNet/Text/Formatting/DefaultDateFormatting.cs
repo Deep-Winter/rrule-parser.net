@@ -3,40 +3,43 @@ using DeepWinter.RRuleParserNet.Translation;
 
 namespace DeepWinter.RRuleParserNet.Text.Formatting
 {
-  public class DefaultDateFormatting : IDateFormatting
-  {
-    readonly IFragmentTranslator _fragmentTranslator;
-
-    public DefaultDateFormatting(IFragmentTranslator fragmentTranslator)
+    public class DefaultDateFormatting : IDateFormatting
     {
-      _fragmentTranslator = fragmentTranslator;
-    }
+        private readonly IFragmentTranslator _fragmentTranslator;
 
-    public string FormatDay(DayOfWeek dayOfWeek)
-    {
-      return _fragmentTranslator.GetCompatibleLocale().DateTimeFormat.GetDayName(dayOfWeek);
-    }
+        public DefaultDateFormatting(IFragmentTranslator fragmentTranslator)
+        {
+            _fragmentTranslator = fragmentTranslator;
+        }
 
-    public string FormatDayShort(DayOfWeek dayOfWeek)
-    {
-      return _fragmentTranslator.GetCompatibleLocale().DateTimeFormat.GetAbbreviatedDayName(dayOfWeek);
-    }
+        public string FormatDay(DayOfWeek dayOfWeek)
+        {
+            return _fragmentTranslator.GetCompatibleLocale().DateTimeFormat.GetDayName(dayOfWeek);
+        }
 
-    public string FormatFullDate(DateTime localDate)
-    {
-      return localDate.ToString("D", _fragmentTranslator.GetCompatibleLocale());
-    }
+        public string FormatDayShort(DayOfWeek dayOfWeek)
+        {
+            return _fragmentTranslator.GetCompatibleLocale().DateTimeFormat.GetAbbreviatedDayName(dayOfWeek);
+        }
 
-    public string FormatMonth(int month)
-    {
-      return _fragmentTranslator.GetCompatibleLocale().DateTimeFormat.GetMonthName(month);
-    }
+        public string FormatFullDate(DateTime localDate)
+        {
+            return localDate.ToString("D", _fragmentTranslator.GetCompatibleLocale());
+        }
 
-    public string FormatMonthDay(DateTime monthDay)
-    {
-      return monthDay.ToString("M", _fragmentTranslator.GetCompatibleLocale());
-    }
+        public string FormatMonth(int month)
+        {
+            return _fragmentTranslator.GetCompatibleLocale().DateTimeFormat.GetMonthName(month);
+        }
 
-    public IFragmentTranslator GetFragmentTranslator() => _fragmentTranslator;
-  }
+        public string FormatMonthDay(DateTime monthDay)
+        {
+            return monthDay.ToString("M", _fragmentTranslator.GetCompatibleLocale());
+        }
+
+        public IFragmentTranslator GetFragmentTranslator()
+        {
+            return _fragmentTranslator;
+        }
+    }
 }

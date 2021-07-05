@@ -1,14 +1,16 @@
-﻿using System;
-namespace DeepWinter.RRuleParserNet.Tokenizer.Token
+﻿namespace DeepWinter.RRuleParserNet.Tokenizer.Token
 {
-  public class CountToken : RRuleToken<int>
-  {
-    public const string NAME = "COUNT";
-
-    public CountToken(int value) : base(value)
+    public class CountToken : RRuleToken<int>
     {
-    }
+        public const string NAME = "COUNT";
 
-    public override string GetName() => NAME;
-  }
+        public CountToken(int value) : base(value)
+        {
+        }
+
+        public override string GetName()
+        {
+            return NAME;
+        }
+    }
 }

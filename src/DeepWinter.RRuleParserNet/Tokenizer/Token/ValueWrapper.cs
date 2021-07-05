@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DeepWinter.RRuleParserNet.Tokenizer.Token
 {
-
     public class ValueWrapper
     {
-        private DateTime _localDate;
+        private readonly DateTime _localDate;
 
         public ValueWrapper(DateTime localDateTime)
         {
@@ -24,7 +21,5 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
             //ugly but design does not allow easy modification
             return getLocalDateTime().ToString(UntilToken.DATE_FORMAT);
         }
-
-
     }
 }
