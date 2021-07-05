@@ -23,6 +23,9 @@ Current available translations are
   - [English](src/DeepWinter.RRuleParserNet/Translation/Language/EnglishTranslation.cs)
   - [German](src/DeepWinter.RRuleParserNet/Translation/Language/GermanTranslation.cs)
   - [Italian](src/DeepWinter.RRuleParserNet/Translation/Language/ItalianTranslation.cs) (Thanks to [Emanuele Rossi](https://github.com/EmanueleRossi)!)
+  - [Dutsch](src/DeepWinter.RRuleParserNet/Translation/Language/DutchTranslation.cs) (Thanks to [Egbert Nierop](https://github.com/egbertn)!)
+  - [Portuguese](src/DeepWinter.RRuleParserNet/Translation/Language/PortugueseTranslation.cs) (Thanks to [Lucas Britz](https://github.com/LucasWBritz)!)
+
 
 The default translation is in [English](src/DeepWinter.RRuleParserNet/Translation/Language/EnglishTranslation.cs).
 
