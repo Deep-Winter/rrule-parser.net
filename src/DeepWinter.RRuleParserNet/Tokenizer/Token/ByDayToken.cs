@@ -20,7 +20,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
 
 
         // Needed since .net5.0 changed GetShortestDayName to retrieve it from System and so this method returns just M instead of MO on newest Ubuntu
-        private static Dictionary<DayOfWeek, string> DayOfWeekShortNames = new Dictionary<DayOfWeek, string>()
+        private static readonly Dictionary<DayOfWeek, string> DayOfWeekShortNames = new Dictionary<DayOfWeek, string>()
         {
             [DayOfWeek.Monday] = "MO",
             [DayOfWeek.Tuesday] = "TU",
