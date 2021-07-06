@@ -39,17 +39,17 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Value
 
                 if (rRuleToken == ERRuleToken.Start)
                     return GetUntilValue(value);
-                throw new System.Exception($"Unknown token {rRuleToken}");
+                throw new System.Exception($"Unknown token {rRuleToken.Name.ToUpperInvariant()}");
             }
             catch (RRuleTokenizeException error)
             {
                 throw new RRuleTokenizeException(
-                    $"Value {value} is invalid for key {rRuleToken}: {error.Message}");
+                    $"Value {value} is invalid for key {rRuleToken.Name.ToUpperInvariant()}: {error.Message}");
             }
             catch (System.Exception error)
             {
                 throw new RRuleTokenizeException(
-                    $"Value {value} is invalid for key {rRuleToken}: {error.Message}");
+                    $"Value {value} is invalid for key {rRuleToken.Name.ToUpperInvariant()}: {error.Message}");
             }
         }
 

@@ -1,61 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
 using DeepWinter.RRuleParserNet.Tokenizer.Exceptions;
+using DeepWinter.RRuleParserNet.Utils;
 
 namespace DeepWinter.RRuleParserNet.Tokenizer.Token
 {
-    public class ERRuleToken
+    public class ERRuleToken : Enumeration
     {
-        public static readonly ERRuleToken Freq = new ERRuleToken(typeof(FreqToken));
-        public static readonly ERRuleToken Until = new ERRuleToken(typeof(UntilToken));
-        public static readonly ERRuleToken Count = new ERRuleToken(typeof(CountToken));
-        public static readonly ERRuleToken Interval = new ERRuleToken(typeof(IntervalToken));
-        public static readonly ERRuleToken ByDay = new ERRuleToken(typeof(ByDayToken));
-        public static readonly ERRuleToken ByMonthDay = new ERRuleToken(typeof(ByMonthDayToken));
-        public static readonly ERRuleToken ByMonth = new ERRuleToken(typeof(ByMonthToken));
-        public static readonly ERRuleToken BySetPos = new ERRuleToken(typeof(BySetPosToken));
-        public static readonly ERRuleToken Start = new ERRuleToken(typeof(StartToken));
-
-        public static readonly Dictionary<string, ERRuleToken> Tokens = new Dictionary<string, ERRuleToken>(StringComparer.CurrentCultureIgnoreCase)
-        {
-            [FreqToken.NAME] = Freq,
-            [UntilToken.NAME] = Until,
-            [CountToken.NAME] = Count,
-            [IntervalToken.NAME] = Interval,
-            [ByDayToken.NAME] = ByDay,
-            [ByMonthDayToken.NAME] = ByMonthDay,
-            [ByMonthToken.NAME] = ByMonth,
-            [BySetPosToken.NAME] = BySetPos,
-            [StartToken.NAME] = Start
-        };
+        public static readonly ERRuleToken Freq = new ERRuleToken(FreqToken.NAME, typeof(FreqToken));
+        public static readonly ERRuleToken Until = new ERRuleToken(UntilToken.NAME, typeof(UntilToken));
+        public static readonly ERRuleToken Count = new ERRuleToken(CountToken.NAME, typeof(CountToken));
+        public static readonly ERRuleToken Interval = new ERRuleToken(IntervalToken.NAME, typeof(IntervalToken));
+        public static readonly ERRuleToken ByDay = new ERRuleToken(ByDayToken.NAME, typeof(ByDayToken));
+        public static readonly ERRuleToken ByMonthDay = new ERRuleToken(ByMonthDayToken.NAME, typeof(ByMonthDayToken));
+        public static readonly ERRuleToken ByMonth = new ERRuleToken(ByMonthToken.NAME, typeof(ByMonthToken));
+        public static readonly ERRuleToken BySetPos = new ERRuleToken(BySetPosToken.NAME, typeof(BySetPosToken));
+        public static readonly ERRuleToken Start = new ERRuleToken(StartToken.NAME, typeof(StartToken));
 
         private readonly Type _tokenType;
 
-        protected ERRuleToken(Type type)
+        private ERRuleToken(string name, Type type) : base(name)
         {
             _tokenType = type;
         }
 
-        public override string ToString()
+        public ERRuleToken()
         {
-            return _tokenType.Name;
         }
 
         public static ERRuleToken SearchRRuleToken(string input)
         {
-            return Tokens.TryGetValue(input, out var token)
-                ? token
-                : throw new Exception(
-                    $@"Unknown token {input}. Possible values are: {string.Join(", ", Tokens.Keys)}");
+            return FromName<ERRuleToken>(input);
         }
 
         public IRRuleToken GetTokenInstance(object value)
         {
             try
             {
-                return (IRRuleToken)Activator.CreateInstance(_tokenType, value);
+                return (IRRuleToken) Activator.CreateInstance(_tokenType, value);
             }
-            catch (Exception error)
+            catch (System.Exception error)
             {
                 throw new RRuleTokenizeException($"Cannot create token instance: {error.Message}");
             }
