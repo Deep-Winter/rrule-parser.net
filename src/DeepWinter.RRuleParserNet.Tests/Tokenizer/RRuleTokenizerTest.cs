@@ -1,6 +1,6 @@
 ﻿using System;
 using DeepWinter.RRuleParserNet.Tokenizer;
-using DeepWinter.RRuleParserNet.Tokenizer.Exception;
+using DeepWinter.RRuleParserNet.Tokenizer.Exceptions;
 using DeepWinter.RRuleParserNet.Tokenizer.Token;
 using DeepWinter.RRuleParserNet.Tokenizer.Validation;
 using DeepWinter.RRuleParserNet.Tokenizer.Value;

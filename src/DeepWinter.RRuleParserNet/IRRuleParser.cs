@@ -1,4 +1,6 @@
-﻿namespace DeepWinter.RRuleParserNet
+﻿using DeepWinter.RRuleParserNet.Tokenizer.Exceptions;
+
+namespace DeepWinter.RRuleParserNet
 {
     public interface IRRuleParser
     {
@@ -7,7 +9,7 @@
         /// </summary>
         /// <param name="pRRule">The RRule to convert.</param>
         /// <returns>Convert RRule as human readable text.</returns>
-        /// <exception cref="Tokenizer.Exception.RRuleTokenizeException">If the given RRule is invalid</exception>
+        /// <exception cref="RRuleTokenizeException">If the given RRule is invalid</exception>
         /// <exception cref="Tokenizer.Validation.Exception.RRuleValidationException">If the given RRule contains invalid keys (e.g. 'FREQ' key is not set)</exception>
         string ParseRRule(string pRRule);
 

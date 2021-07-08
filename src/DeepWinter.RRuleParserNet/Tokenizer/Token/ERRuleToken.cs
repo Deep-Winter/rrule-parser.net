@@ -1,5 +1,5 @@
 ﻿using System;
-using DeepWinter.RRuleParserNet.Tokenizer.Exception;
+using DeepWinter.RRuleParserNet.Tokenizer.Exceptions;
 using DeepWinter.RRuleParserNet.Utils;
 
 namespace DeepWinter.RRuleParserNet.Tokenizer.Token

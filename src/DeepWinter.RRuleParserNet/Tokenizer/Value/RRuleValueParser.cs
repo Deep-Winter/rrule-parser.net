@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using DeepWinter.RRuleParserNet.Tokenizer.Exception;
+using DeepWinter.RRuleParserNet.Tokenizer.Exceptions;
 using DeepWinter.RRuleParserNet.Tokenizer.Token;
 
 namespace DeepWinter.RRuleParserNet.Tokenizer.Value

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DeepWinter.RRuleParserNet.Tokenizer.Exception;
+using DeepWinter.RRuleParserNet.Tokenizer.Exceptions;
 using DeepWinter.RRuleParserNet.Tokenizer.Token;
 using DeepWinter.RRuleParserNet.Tokenizer.Validation;
 using DeepWinter.RRuleParserNet.Tokenizer.Value;
@@ -37,19 +37,18 @@ namespace DeepWinter.RRuleParserNet.Tokenizer
             var rruleKeyValue = SplitRRulePart(rrulePart);
             if (rruleKeyValue.Length != 2)
                 throw new RRuleTokenizeException(
-                    string.Format("RRule part {0} contains more than key/value", rrulePart));
+                    $"RRule part {rrulePart} contains more than key/value");
 
             var rruleKey = rruleKeyValue[0];
             var rruleValue = rruleKeyValue[1];
 
             var rruleToken = ERRuleToken.SearchRRuleToken(rruleKey);
             if (rruleToken == null)
-                throw new RRuleTokenizeException(string.Format("RRule key {0} not found", rruleKey));
+                throw new RRuleTokenizeException($"RRule key {rruleKey} not found");
 
             var valueInstance = ParseValue(rruleToken, rruleValue);
             if (valueInstance == null)
-                throw new RRuleTokenizeException(string.Format("RRule value {0} is not applicable for key {1}",
-                    rruleValue, rruleKey));
+                throw new RRuleTokenizeException($"RRule value {rruleValue} is not applicable for key {rruleKey}");
 
             return rruleToken.GetTokenInstance(valueInstance);
         }

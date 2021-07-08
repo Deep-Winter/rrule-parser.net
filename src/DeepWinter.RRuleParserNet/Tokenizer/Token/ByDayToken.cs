@@ -18,6 +18,19 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
             return NAME;
         }
 
+
+        // Needed since .net5.0 changed GetShortestDayName to retrieve it from System and so this method returns just M instead of MO on newest Ubuntu
+        private static readonly Dictionary<DayOfWeek, string> DayOfWeekShortNames = new Dictionary<DayOfWeek, string>()
+        {
+            [DayOfWeek.Monday] = "MO",
+            [DayOfWeek.Tuesday] = "TU",
+            [DayOfWeek.Wednesday] = "WE",
+            [DayOfWeek.Thursday] = "TH",
+            [DayOfWeek.Friday] = "FR",
+            [DayOfWeek.Saturday] = "SA",
+            [DayOfWeek.Sunday] = "SU"
+        };
+
         /// <summary>
         /// Helper method to get the required string of the day.
         /// </summary>
@@ -25,9 +38,7 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
         /// <returns>String representative of the DayOfWeek.</returns>
         public static string GetByDayOfWeek(DayOfWeek dayOfWeek)
         {
-            // Only US required
-            var culture = new CultureInfo("en-US");
-            return DateTimeFormatInfo.GetInstance(culture).GetShortestDayName(dayOfWeek).ToUpper(culture);
+            return DayOfWeekShortNames[dayOfWeek];
         }
 
         /// <summary>
@@ -56,12 +67,12 @@ namespace DeepWinter.RRuleParserNet.Tokenizer.Token
 
             public override bool Equals(object obj)
             {
-                if (!(obj is DayList))
+                if (!(obj is DayList list))
                     return false;
 
-                return ((DayList) obj).GetDayList().All(item => _dayList.Contains(item))
-                       && _dayList.All(item => ((DayList) obj).GetDayList().Contains(item))
-                       && _dayList.Count == ((DayList) obj).GetDayList().Count();
+                return list.GetDayList().All(item => _dayList.Contains(item))
+                       && _dayList.All(item => ((DayList)obj).GetDayList().Contains(item))
+                       && _dayList.Count == list.GetDayList().Count;
             }
 
             public override int GetHashCode()
