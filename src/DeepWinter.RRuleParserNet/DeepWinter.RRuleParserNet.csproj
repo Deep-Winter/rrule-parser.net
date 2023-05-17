@@ -6,7 +6,7 @@
     <Authors>Lars Winter</Authors>
     <Copyright>Copyright © 2019 Lars Winter</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
+    <License>https://licenses.nuget.org/MIT</License>
     <Owners>Lars Winter</Owners>
     <PackageProjectUrl>https://github.com/Deep-Winter/rrule-parser.net</PackageProjectUrl>
     <Summary>Dotnet port of rrule-parser by aditosoftware.
@@ -16,6 +16,7 @@ RRule parser is a small dotnet library which lets you convert a iCalendar RRule 
     <Description>Dotnet port of rrule-parser by aditosoftware.
 RRule parser is a small dotnet library which lets you convert a iCalendar RRule into human readable text.</Description>
     <PackageVersion>1.0.2</PackageVersion>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +29,6 @@ RRule parser is a small dotnet library which lets you convert a iCalendar RRule 
     <Folder Include="Text\Listing\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NuGet.Packaging" Version="5.5.1" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>

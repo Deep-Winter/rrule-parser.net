@@ -1,6 +1,6 @@
 language: csharp
 mono: none
-dotnet: 3.0
+dotnet: 6.0
 sudo: false
 env:
     global:
